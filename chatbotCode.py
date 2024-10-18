@@ -14,16 +14,41 @@ def get_flavor(card: Tuple[str,str,int,str,str]) -> str:
 def get_color(card: Tuple[str,str,int,str,str]) -> str:
     return card[4]
 # Actions
-def card_by_year():
-    pass
-def card_by_year_range():
-    pass 
-def card_before_year():
-    pass
-def card_after_year():
-    pass
-def type_by_card():
-    pass
+def card_by_year(matches: List(str)) -> List(str):
+    year = int(matches[0])
+    result = []
+    for card in magic_db:
+        if get_year(card) == year:
+            result.append(get_name(card))
+    return result
+def card_by_year_range(matches: List(str)) -> List(str):
+    year1 = int(matches[0])
+    year2 = int(matches[1])
+    result = []
+    for card in magic_db:
+        if get_year(card)>=year1 and get_year(card) <= year2:
+            result.append(get_name(card))
+    return result
+def card_before_year(matches: List(str))-> List(str):
+    year = int(matches[0])
+    result = []
+    for card in magic_db:
+        if get_year(card) < year:
+            result.append(get_name(card))
+    return result
+def card_after_year(matches: List(str))-> List(str):
+    year = int(matches[0])
+    result = []
+    for card in magic_db:
+        if get_year > year:
+            result.append(get_name(card))
+    return result
+def type_by_card(matches: List(str))-> List(str):
+    name = matches[0]
+    for card in magic_db:
+        if name == get_name(card):
+            return get_type(card)
+    return[]
 def card_by_type():
     pass
 def flavor_by_card():
