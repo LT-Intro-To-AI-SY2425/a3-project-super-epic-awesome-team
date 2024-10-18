@@ -135,10 +135,10 @@ magic_db: List[Tuple[str, str, int, str]] = [
         "Red",
     ),
     (
-        "othello",
-        "",
-        1952,
-        "",
-        "",
+        "Cyberman Conversion",
+        "Instant",
+        2023,
+        "Do not fear. We will take your fear from you. You will be like us.",
+        "Blue",
     ),
 ]
