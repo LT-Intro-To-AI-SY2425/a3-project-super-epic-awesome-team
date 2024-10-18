@@ -141,4 +141,18 @@ magic_db: List[Tuple[str, List[str], int, List[str]]] = [
         "Do not fear. We will take your fear from you. You will be like us.",
         ["Blue"],
     ),
+    (
+        "Solemn Simulacrum",
+        ["Artifact", "Creature"],
+        2003,
+        "None",
+        ["Colorless"],
+    ),
+    (
+        "Urza's saga",
+        ["Enchantment", "Land"],
+        2021,
+        "None",
+        ["Colorless"],
+    ),
 ]
