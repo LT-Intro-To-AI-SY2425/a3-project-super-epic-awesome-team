@@ -11,7 +11,7 @@ def get_year(card: Tuple[str,str,int,str,str]) -> int:
     return card[2]
 def get_flavor(card: Tuple[str,str,int,str,str]) -> str:
     return card[3]
-def get_color(card: Tuple[str,str,int,str,str]) -> str:
+def get_color(card: Tuple[str,str,int,str,str]) -> List[str]:
     return card[4]
 # Actions
 def card_by_year():
