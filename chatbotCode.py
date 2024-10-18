@@ -3,15 +3,15 @@ from match import match
 from typing import List, Tuple, Callable, Any
 
 # Basic functions
-def get_name(card: Tuple[str,str,int,str,str]) -> str:
+def get_name(card: Tuple[str,str,int,str,List[str]]) -> str:
     return card[0]
-def get_type(card: Tuple[str,str,int,str,str]) -> str:
+def get_type(card: Tuple[str,str,int,str,List[str]]) -> str:
     return card[1]
-def get_year(card: Tuple[str,str,int,str,str]) -> int:
+def get_year(card: Tuple[str,str,int,str,List[str]]) -> int:
     return card[2]
-def get_flavor(card: Tuple[str,str,int,str,str]) -> str:
+def get_flavor(card: Tuple[str,str,int,str,List[str]]) -> str:
     return card[3]
-def get_color(card: Tuple[str,str,int,str,str]) -> List[str]:
+def get_color(card: Tuple[str,str,int,str,List[str]]) -> List[str]:
     return card[4]
 # Actions
 def card_by_year():
