@@ -49,10 +49,20 @@ def type_by_card(matches: List(str))-> List(str):
         if name == get_name(card):
             return get_type(card)
     return[]
-def card_by_type():
-    pass
-def flavor_by_card():
-    pass
+def card_by_type(matches: List[str])-> List[str]:
+    cardType = matches[0]
+    result = []
+    for card in magic_db:
+        types = get_type(card)
+        if cardType in types:
+            result.append(get_name(card))
+    return result
+def flavor_by_card(matches: List[str])-> List[str]:
+    name = matches[0]
+    for card in magic_db:
+        if get_name(card) == name:
+            return get_flavor(card)
+    return []
 def card_by_flavor():
     pass
 def year_by_card():
