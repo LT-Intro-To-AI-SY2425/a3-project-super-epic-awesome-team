@@ -107,7 +107,7 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what is the flavor text of %"), flavor_by_card),
     (str.split("when was % made"), year_by_card),
     (str.split("what color is %"), color_by_card),
-    (str.split("Give me a list of % cards"), card_by_color),
+    (str.split("give me a list of % cards"), card_by_color),
     (["bye"], bye_action),
 ]
 
