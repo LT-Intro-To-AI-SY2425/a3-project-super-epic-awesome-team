@@ -29,27 +29,27 @@ def card_by_year_range(matches: List[str]) -> List[str]:
         if get_year(card)>=year1 and get_year(card) <= year2:
             result.append(get_name(card))
     return result
-def card_before_year(matches: List[str])-> List[str]:
+def card_before_year(matches: List[str]) -> List[str]:
     year = int(matches[0])
     result = []
     for card in magic_db:
         if get_year(card) < year:
             result.append(get_name(card))
     return result
-def card_after_year(matches: List[str])-> List[str]:
+def card_after_year(matches: List[str]) -> List[str]:
     year = int(matches[0])
     result = []
     for card in magic_db:
         if get_year > year:
             result.append(get_name(card))
     return result
-def type_by_card(matches: List[str])-> List[str]:
+def type_by_card(matches: List[str]) -> List[str]:
     name = matches[0]
     for card in magic_db:
         if name == get_name(card):
             return get_type(card)
-    return[]
-def card_by_type(matches: List[str])-> List[str]:
+    return []
+def card_by_type(matches: List[str]) -> List[str]:
     cardType = matches[0]
     result = []
     for card in magic_db:
@@ -57,20 +57,43 @@ def card_by_type(matches: List[str])-> List[str]:
         if cardType in types:
             result.append(get_name(card))
     return result
-def flavor_by_card(matches: List[str])-> List[str]:
+def flavor_by_card(matches: List[str]) -> List[str]:
     name = matches[0]
     for card in magic_db:
         if get_name(card) == name:
-            return get_flavor(card)
+            flavor = get_flavor(card)
+            if flavor == "":
+                return ["This card has no flavor text!"]
+            else: return [flavor]
     return []
-def card_by_flavor():
-    pass
-def year_by_card():
-    pass
-def color_by_card():
-    pass
-def card_by_color():
-    pass
+def card_by_flavor(matches: List[str]) -> List[str]:
+    flavor = matches[0]
+    result = []
+    for card in magic_db:
+        if get_flavor(card) == flavor:
+            result.append(flavor)
+    return result
+
+def year_by_card(matches: List[str]) -> List[str]:
+    name = matches[0]
+    for card in magic_db:
+        if get_name(card) == name:
+            return [get_year(card)]
+    return []
+def color_by_card(matches: List[str]) -> List[str]:
+    name = matches[0]
+    for card in magic_db:
+        if get_name(card) == name:
+            return get_color(card)
+    return []
+
+def card_by_color(matches: List[str]) -> List[str]:
+    cardColor = matches[0]
+    result = []
+    for card in magic_db:
+        if cardColor in get_color(card):
+            result.append(get_name(card))
+    return result
 def bye_action(dummy: List[str]) -> None:
     raise KeyboardInterrupt
  # PA and query loop
@@ -84,7 +107,7 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what is the flavor text of %"), flavor_by_card),
     (str.split("when was % made"), year_by_card),
     (str.split("what color is %"), color_by_card),
-    (str.split("Give me a list of % cards"), card_by_color)
+    (str.split("Give me a list of % cards"), card_by_color),
     (["bye"], bye_action),
 ]
 
@@ -103,7 +126,7 @@ def query_loop() -> None:
     """The simple query loop. The try/except structure is to catch Ctrl-C or Ctrl-D
     characters and exit gracefully.
     """
-    print("Welcome to the movie database!\n")
+    print("Welcome to the magic database!\n")
     while True:
         try:
             print()
@@ -119,5 +142,5 @@ def query_loop() -> None:
 
 
 
-#query_loop()
+query_loop()
 
