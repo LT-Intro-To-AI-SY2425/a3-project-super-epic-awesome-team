@@ -5,7 +5,7 @@ from typing import List, Tuple, Callable, Any
 # Basic functions
 def get_name(card: Tuple[str,List[str],int,str,List[str]]) -> str:
     return card[0]
-def get_type(card: Tuple[str,List[str],int,str,List[str]]) -> str:
+def get_type(card: Tuple[str,List[str],int,str,List[str]]) -> List[str]:
     return card[1]
 def get_year(card: Tuple[str,List[str],int,str,List[str]]) -> int:
     return card[2]
@@ -14,14 +14,14 @@ def get_flavor(card: Tuple[str,List[str],int,str,List[str]]) -> str:
 def get_color(card: Tuple[str,List[str],int,str,List[str]]) -> List[str]:
     return card[4]
 # Actions
-def card_by_year(matches: List(str)) -> List(str):
+def card_by_year(matches: List[str]) -> List[str]:
     year = int(matches[0])
     result = []
     for card in magic_db:
         if get_year(card) == year:
             result.append(get_name(card))
     return result
-def card_by_year_range(matches: List(str)) -> List(str):
+def card_by_year_range(matches: List[str]) -> List[str]:
     year1 = int(matches[0])
     year2 = int(matches[1])
     result = []
@@ -29,30 +29,40 @@ def card_by_year_range(matches: List(str)) -> List(str):
         if get_year(card)>=year1 and get_year(card) <= year2:
             result.append(get_name(card))
     return result
-def card_before_year(matches: List(str))-> List(str):
+def card_before_year(matches: List[str])-> List[str]:
     year = int(matches[0])
     result = []
     for card in magic_db:
         if get_year(card) < year:
             result.append(get_name(card))
     return result
-def card_after_year(matches: List(str))-> List(str):
+def card_after_year(matches: List[str])-> List[str]:
     year = int(matches[0])
     result = []
     for card in magic_db:
         if get_year > year:
             result.append(get_name(card))
     return result
-def type_by_card(matches: List(str))-> List(str):
+def type_by_card(matches: List[str])-> List[str]:
     name = matches[0]
     for card in magic_db:
         if name == get_name(card):
             return get_type(card)
     return[]
-def card_by_type():
-    pass
-def flavor_by_card():
-    pass
+def card_by_type(matches: List[str])-> List[str]:
+    cardType = matches[0]
+    result = []
+    for card in magic_db:
+        types = get_type(card)
+        if cardType in types:
+            result.append(get_name(card))
+    return result
+def flavor_by_card(matches: List[str])-> List[str]:
+    name = matches[0]
+    for card in magic_db:
+        if get_name(card) == name:
+            return get_flavor(card)
+    return []
 def card_by_flavor():
     pass
 def year_by_card():
