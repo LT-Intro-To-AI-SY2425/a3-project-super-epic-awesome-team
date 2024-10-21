@@ -140,7 +140,4 @@ def query_loop() -> None:
 
     print("\nSo long!\n")
 
-
-
-query_loop()
-
+query_loop() 
