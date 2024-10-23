@@ -40,7 +40,7 @@ def card_after_year(matches: List[str]) -> List[str]:
     year = int(matches[0])
     result = []
     for card in magic_db:
-        if get_year > year:
+        if get_year(card) > year:
             result.append(get_name(card))
     return result
 def type_by_card(matches: List[str]) -> List[str]:
