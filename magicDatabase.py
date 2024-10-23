@@ -44,7 +44,7 @@ magic_db: List[Tuple[str, List[str], int, List[str]]] = [
         ["colorless"],
     ),
     (
-        "smothering Tithe",
+        "smothering tithe",
         ["enchantment"],
         2019,
         "i await your donation",
@@ -54,11 +54,11 @@ magic_db: List[Tuple[str, List[str], int, List[str]]] = [
         "rhystic study",
         ["enchantment"],
         2000,
-        "friends teach what you want to know. Enemies teach what you need to know.",
+        "friends teach what you want to know. enemies teach what you need to know.",
         ["blue"],
     ),
     (
-        "chatterfang, Squirrel General",
+        "chatterfang, squirrel general",
         ["creature"],
         2019,
         "none",
@@ -89,7 +89,7 @@ magic_db: List[Tuple[str, List[str], int, List[str]]] = [
         "high tide",
         ["instant"],
         1994,
-        "by the time their enemies noticed the sea's changing mood, the Vodalians had often shifted formation and were ready to attack.",
+        "by the time their enemies noticed the sea's changing mood, the vodalians had often shifted formation and were ready to attack.",
         ["blue"],
     ),
     (
@@ -103,7 +103,7 @@ magic_db: List[Tuple[str, List[str], int, List[str]]] = [
         "kaalia of the vast",
         ["creature"],
         2011,
-        "i'll have my revenge if I have to call on every force from above and below.",
+        "i'll have my revenge if i have to call on every force from above and below.",
         ["red", "white", "black"],
     ),
     (
